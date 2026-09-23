@@ -9,6 +9,7 @@ on:
 
 jobs:
   quality:
+    name: mobile-quality
     runs-on: ubuntu-latest
     defaults:
       run:

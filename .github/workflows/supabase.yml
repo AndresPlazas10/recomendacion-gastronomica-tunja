@@ -9,6 +9,7 @@ on:
 
 jobs:
   migrations:
+    name: supabase-migrations
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
