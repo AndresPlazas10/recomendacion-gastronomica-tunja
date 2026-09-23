@@ -6,22 +6,34 @@ import { env, envConfigurado } from "@/lib/env";
 
 type Estado = "verificando" | "ok" | "error";
 
+async function consultarApi(): Promise<Estado> {
+  try {
+    const respuesta = await fetch(`${env.apiUrl}/health`);
+    return respuesta.ok ? "ok" : "error";
+  } catch {
+    return "error";
+  }
+}
+
 export default function Inicio() {
   const [estadoApi, setEstadoApi] = useState<Estado>("verificando");
 
+  useEffect(() => {
+    let activo = true;
+    void consultarApi().then((estado) => {
+      if (activo) {
+        setEstadoApi(estado);
+      }
+    });
+    return () => {
+      activo = false;
+    };
+  }, []);
+
   const verificarApi = async () => {
     setEstadoApi("verificando");
-    try {
-      const respuesta = await fetch(`${env.apiUrl}/health`);
-      setEstadoApi(respuesta.ok ? "ok" : "error");
-    } catch {
-      setEstadoApi("error");
-    }
+    setEstadoApi(await consultarApi());
   };
-
-  useEffect(() => {
-    void verificarApi();
-  }, []);
 
   return (
     <View style={styles.contenedor}>
