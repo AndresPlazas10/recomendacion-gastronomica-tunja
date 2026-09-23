@@ -11,7 +11,7 @@ app = FastAPI(
 
 app.include_router(health_router)
 
-if settings.env == "development":
-    @app.get("/", include_in_schema=False)
-    def root() -> dict[str, str]:
-        return {"servicio": "api", "docs": "/docs"}
+
+@app.get("/", include_in_schema=False)
+def root() -> dict[str, str]:
+    return {"servicio": "api", "docs": "/docs", "env": settings.env}
