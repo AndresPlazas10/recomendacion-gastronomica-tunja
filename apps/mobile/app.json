@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Recomendación Gastronómica Tunja",
+    "slug": "recomendacion-gastronomica-tunja",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "recomendatunja",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "co.edu.semillero.recomendatunja"
+    },
+    "android": {
+      "package": "co.edu.semillero.recomendatunja",
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": ["expo-secure-store", "expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

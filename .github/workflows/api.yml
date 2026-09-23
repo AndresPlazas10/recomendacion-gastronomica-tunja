@@ -1,0 +1,30 @@
+name: API
+
+on:
+  push:
+    branches: [main]
+    paths: ["services/api/**", ".github/workflows/api.yml"]
+  pull_request:
+    paths: ["services/api/**", ".github/workflows/api.yml"]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependencias
+        run: uv sync --extra dev
+      - name: Lint
+        run: uv run ruff check .
+      - name: Formato
+        run: uv run ruff format --check .
+      - name: Pruebas
+        run: uv run pytest -q
+      - name: Build de imagen
+        run: docker build -t api:ci .
