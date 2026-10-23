@@ -1,6 +1,4 @@
--- El perfil se crea desde el trigger de Supabase Auth. Los usuarios solo
--- pueden leer su perfil y actualizar campos de perfil no privilegiados.
-
+-- Crear perfiles de forma segura cuando Supabase Auth crea una cuenta.
 create or replace function public.crear_perfil_usuario()
 returns trigger
 language plpgsql
@@ -22,6 +20,9 @@ create trigger on_auth_user_created_profile
   after insert on auth.users
   for each row execute function public.crear_perfil_usuario();
 
+-- El rol solo se modifica mediante operaciones de servidor confiables.
+-- Los usuarios autenticados pueden leer su perfil y actualizar los campos
+-- editables, pero no pueden insertar, eliminar ni modificar rol_global.
 revoke all on table public.perfiles from public, anon, authenticated;
 
 grant select on table public.perfiles to authenticated;

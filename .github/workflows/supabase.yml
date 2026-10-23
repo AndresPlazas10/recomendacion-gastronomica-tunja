@@ -21,7 +21,7 @@ jobs:
         run: supabase start
       - name: Aplicar migraciones y seed
         run: supabase db reset
-      - name: Pruebas de permisos de perfiles
+      - name: Pruebas de RLS
         run: supabase test db
       - name: Lint de base de datos
         run: supabase db lint --level warning

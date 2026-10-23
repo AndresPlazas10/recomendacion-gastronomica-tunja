@@ -61,7 +61,8 @@ npx expo start
 
 ```bash
 supabase start              # entorno local (o usar el proyecto dev en la nube)
-supabase db reset           # aplica migraciones + seed
+supabase db reset           # reinicia la base local y aplica migraciones + seed
+supabase test db            # ejecuta las pruebas SQL, incluidas las políticas RLS
 ```
 
 ## Estado

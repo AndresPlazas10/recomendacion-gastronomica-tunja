@@ -3,9 +3,9 @@ name: API
 on:
   push:
     branches: [main]
-    paths: ["services/api/**", ".github/workflows/api.yml"]
+    paths: ["services/api/**", "supabase/**", ".github/workflows/api.yml"]
   pull_request:
-    paths: ["services/api/**", ".github/workflows/api.yml"]
+    paths: ["services/api/**", "supabase/**", ".github/workflows/api.yml"]
 
 jobs:
   quality:

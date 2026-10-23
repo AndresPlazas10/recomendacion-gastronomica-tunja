@@ -3,9 +3,9 @@ name: Mobile
 on:
   push:
     branches: [main]
-    paths: ["apps/mobile/**", ".github/workflows/mobile.yml"]
+    paths: ["apps/mobile/**", "supabase/**", ".github/workflows/mobile.yml"]
   pull_request:
-    paths: ["apps/mobile/**", ".github/workflows/mobile.yml"]
+    paths: ["apps/mobile/**", "supabase/**", ".github/workflows/mobile.yml"]
 
 jobs:
   quality:
