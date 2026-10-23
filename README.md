@@ -67,8 +67,8 @@ supabase test db            # ejecuta las pruebas SQL, incluidas las políticas 
 
 ## Estado
 
-- Sprint 0 completado (documentación y base técnica).
-- **Sprint 1 en curso:** infraestructura + registro de usuario (HU-027, HU-001).
+- Sprint 0: base técnica y documentación realizadas; la bitácora mantiene pendiente reconciliar el cierre final.
+- **Sprint 1 en cierre:** los cambios de HU-027/HU-001, eventos y privilegios RLS están publicados en `feat/sprint-1-close`; faltan CI, validaciones de Supabase, pruebas E2E del registro y builds Android/iOS para declarar el cierre.
 - MVP: 186 SP en 6 sprints; el motor Python + pgvector llega en el Incremento 2.
 
 ## Convenciones

@@ -11,7 +11,7 @@ npx expo start
 ```
 
 - `a` abre Android, `i` abre iOS.
-- La pantalla inicial verifica `GET /health` de la API.
+- La pantalla inicial permite crear una cuenta con Supabase Auth y verificar `GET /health`.
 
 ## Calidad
 
@@ -32,4 +32,5 @@ src/lib/        supabase, env, utilidades
 
 - Los tokens de sesión se guardan con `expo-secure-store`.
 - La ubicación se solicitará con `expo-location` solo al usarla (Sprint 2+).
-- La captura de eventos usa `POST /v1/eventos` (regla transversal desde S1).
+- `src/lib/events.ts` centraliza el envío autenticado de eventos a `POST /v1/eventos`.
+- El registro de eventos requiere consentimiento vigente de interacciones.
