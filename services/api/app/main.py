@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from app.api.v1.events import router as events_router
 from app.api.v1.health import router as health_router
 from app.core.config import settings
 
@@ -10,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(health_router)
+app.include_router(events_router)
 
 
 @app.get("/", include_in_schema=False)

@@ -17,6 +17,7 @@ uv run uvicorn app.main:app --reload
 
 - `GET /health` → liveness
 - `GET /v1/health` → readiness
+- `POST /v1/eventos` → registro autenticado de hasta 50 eventos; requiere consentimiento vigente de interacciones
 - Documentación interactiva: `http://localhost:8000/docs` (solo en desarrollo)
 
 ## Calidad
@@ -33,7 +34,7 @@ uv run pytest -q
 app/
 ├── main.py          # aplicación FastAPI
 ├── core/config.py   # configuración por entorno
-└── api/v1/          # routers (health, …)
+└── api/v1/          # routers (health, eventos, …)
 tests/               # pruebas
 ```
 
